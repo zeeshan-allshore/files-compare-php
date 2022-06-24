@@ -5,13 +5,18 @@ class FileSystem
     /*
         This method opens the file from the given path and returns the array of strings
     */
-    public function fileToArray($path)
+    public function fileToArray($file_name)
     {
-        $file_open  = fopen($path, "r") or die("Unable to open file!");
-        $file_data  = fread($file_open, filesize($path));
-        $file_array = explode(PHP_EOL, $file_data);
-        fclose($file_open);
-        return $file_array;
+        $path = "input_files/" . $file_name;
+        if (file_exists($path)) {
+
+            $file_open  = fopen($path, "r") or die("Unable to open file!");
+            $file_data  = fread($file_open, filesize($path));
+            $file_array = explode(PHP_EOL, $file_data);
+            fclose($file_open);
+            return $file_array;
+        }
+        throw new Exception('The File ' . $file_name . ' does not exist');
     }
 
     /*
