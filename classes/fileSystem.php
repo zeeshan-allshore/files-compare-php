@@ -21,8 +21,10 @@ class FileSystem
     */
     public function saveDiffernceFile($first_array, $second_array, $file_name = 'file')
     {
+
         $arr_difference = array_diff($first_array, $second_array);
-        $file_write = fopen("downloads/" . $file_name . ".txt", "w") or die("Unable to open file!");
+        natcasesort($arr_difference);
+        $file_write = fopen("output_files/" . $file_name . ".txt", "w") or die("Unable to open file!");
         $implode_array =  implode(PHP_EOL, $arr_difference);
         fwrite($file_write, $implode_array);
     }
