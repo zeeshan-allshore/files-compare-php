@@ -10,6 +10,8 @@ Second File contain strings found in the second input file, but not in the first
 **FileSystem:**
 FileSystem is the class created having method to load files, get the difference of two files, and Save the file in the output_files folder in root directory.
 
+**Folder Structure:**
+
 **input_files Folder:**
 Files Folder has the two files lexicographically sorted in the same order ASCII strings. The system loads those files and compares them
 
